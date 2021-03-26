@@ -47,7 +47,8 @@ const Cells = ({ currentMonth }: CellsProps) => {
           key={day.toString()}
           w="100%"
           position="relative"
-          p={8}
+          p={{ base: 2, md: 6, xl: 8 }}
+          py={{ base: 6 }}
           borderBottom="1px"
           borderLeft="1px"
           borderColor="gray.100"
@@ -67,7 +68,7 @@ const Cells = ({ currentMonth }: CellsProps) => {
           {isToday(day) && (
             <Center>
               <Badge
-                fontSize="8px"
+                fontSize={{ base: "6px", md: "8px" }}
                 position="absolute"
                 top="0"
                 mx="auto"
@@ -77,7 +78,7 @@ const Cells = ({ currentMonth }: CellsProps) => {
               </Badge>
             </Center>
           )}
-          {isSameDay(day, selectedDate) && (
+          {isSameDay(day, selectedDate) && !isToday(selectedDate) && (
             <Box
               color="blue.500"
               fontSize="8px"

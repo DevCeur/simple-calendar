@@ -23,7 +23,7 @@ const Calendar = () => {
 
   return (
     <Center w="100vw">
-      <Flex direction="column" maxW={700} w="85%" mt={24}>
+      <Flex direction="column" maxW={700} w="85%" mt={{ base: 12, md: 20 }}>
         <Header
           currentMonth={dates.currentMonth}
           onPrevMonth={handlePrevMonth}
