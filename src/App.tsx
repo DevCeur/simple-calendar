@@ -1,9 +1,7 @@
+import Calendar from "components/Calendar";
+
 const App = () => {
-  return (
-    <div>
-      <p>App</p>
-    </div>
-  );
+  return <Calendar />;
 };
 
 export default App;
