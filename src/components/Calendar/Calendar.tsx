@@ -1,9 +1,15 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+
+import Header from "components/Header";
+import Days from "components/Days";
+import Cells from "components/Cells";
 
 const Calendar = () => {
   return (
-    <Flex>
-      <Text>Calendar</Text>
+    <Flex direction="column">
+      <Header />
+      <Days />
+      <Cells />
     </Flex>
   );
 };
