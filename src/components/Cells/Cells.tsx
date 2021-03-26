@@ -45,7 +45,7 @@ const Cells = ({ currentMonth }: CellsProps) => {
           key={day.toString()}
           w="100%"
           position="relative"
-          p={{ base: 2, md: 6, xl: 8 }}
+          p={{ base: 2, md: 6 }}
           py={{ base: 6 }}
           borderBottom="1px"
           borderLeft="1px"
