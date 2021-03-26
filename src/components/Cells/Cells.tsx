@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext } from "react";
 import {
   endOfWeek,
   format,
@@ -13,12 +13,14 @@ import {
 import { Badge, Box, Center, Flex, Text } from "@chakra-ui/react";
 import { RiCheckboxBlankCircleFill } from "react-icons/ri";
 
+import { CalendarContext } from "context/CalendarContext";
+
 interface CellsProps {
   currentMonth: Date;
 }
 
 const Cells = ({ currentMonth }: CellsProps) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const { selectedDate, handleSelectDate } = useContext(CalendarContext);
 
   const dateFormat = "d";
   const rows = [];
@@ -31,10 +33,6 @@ const Cells = ({ currentMonth }: CellsProps) => {
   let days = [];
   let day = startDate;
   let formattedDate = "";
-
-  const handleClickDay = (selectedDate: Date) => {
-    setSelectedDate(selectedDate);
-  };
 
   while (day <= endDate) {
     for (let i = 0; i < 7; i++) {
@@ -63,7 +61,7 @@ const Cells = ({ currentMonth }: CellsProps) => {
           _hover={{
             bgColor: isBefore(day, new Date()) ? "gray.50" : "teal.50",
           }}
-          onClick={() => handleClickDay(cloneDay)}
+          onClick={() => handleSelectDate(cloneDay!)}
         >
           {isToday(day) && (
             <Center>
@@ -78,7 +76,7 @@ const Cells = ({ currentMonth }: CellsProps) => {
               </Badge>
             </Center>
           )}
-          {isSameDay(day, selectedDate) && !isToday(selectedDate) && (
+          {isSameDay(day, selectedDate!) && !isToday(selectedDate!) && (
             <Box
               color="blue.500"
               fontSize="8px"

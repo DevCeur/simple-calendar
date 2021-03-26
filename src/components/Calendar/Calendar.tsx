@@ -1,36 +1,29 @@
-import { useState } from "react";
-import { addMonths, subMonths } from "date-fns/esm";
+import { useContext } from "react";
 import { Center, Flex } from "@chakra-ui/react";
+
+import { CalendarContext } from "context/CalendarContext";
 
 import Header from "components/Header";
 import Days from "components/Days";
 import Cells from "components/Cells";
+import SelectedDate from "components/SelectedDate";
 
 const Calendar = () => {
-  const [dates, setDates] = useState({
-    currentMonth: new Date(),
-  });
-
-  const handlePrevMonth = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setDates({ ...dates, currentMonth: subMonths(dates.currentMonth, 1) });
-  };
-
-  const handleNextMonth = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setDates({ ...dates, currentMonth: addMonths(dates.currentMonth, 1) });
-  };
+  const { currentMonth, handleNextMonth, handlePrevMonth } = useContext(
+    CalendarContext
+  );
 
   return (
     <Center w="100vw">
-      <Flex direction="column" maxW={700} w="85%" mt={{ base: 12, md: 20 }}>
+      <Flex direction="column" maxW={700} w="85%">
         <Header
-          currentMonth={dates.currentMonth}
-          onPrevMonth={handlePrevMonth}
-          onNextMonth={handleNextMonth}
+          currentMonth={currentMonth!}
+          onPrevMonth={handlePrevMonth!}
+          onNextMonth={handleNextMonth!}
         />
-        <Days currentMonth={dates.currentMonth} />
-        <Cells currentMonth={dates.currentMonth} />
+        <Days currentMonth={currentMonth!} />
+        <Cells currentMonth={currentMonth!} />
+        <SelectedDate />
       </Flex>
     </Center>
   );
