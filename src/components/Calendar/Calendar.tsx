@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { addMonths, subMonths } from "date-fns/esm";
-import { Center, VStack } from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
 
 import Header from "components/Header";
 import Days from "components/Days";
@@ -24,15 +24,15 @@ const Calendar = () => {
 
   return (
     <Center w="100vw" h="100vh">
-      <VStack spacing={4} maxW={600} w="85%">
+      <Flex direction="column" maxW={700} w="85%">
         <Header
           currentMonth={dates.currentMonth}
           onPrevMonth={handlePrevMonth}
           onNextMonth={handleNextMonth}
         />
-        <Days />
+        <Days currentMonth={dates.currentMonth} />
         <Cells />
-      </VStack>
+      </Flex>
     </Center>
   );
 };
