@@ -22,7 +22,7 @@ const Days = ({ currentMonth }: DaysProps) => {
       my={4}
     >
       {days.map((day, i) => (
-        <Box w="100%" key={day.toString()}>
+        <Box w="100%" key={day.toString()} cursor="default">
           <Text
             textAlign="center"
             fontSize="xs"
