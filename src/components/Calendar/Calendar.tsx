@@ -7,11 +7,15 @@ import Header from "components/Header";
 import Days from "components/Days";
 import Cells from "components/Cells";
 import SelectedDate from "components/SelectedDate";
+import { isToday } from "date-fns";
 
 const Calendar = () => {
-  const { currentMonth, handleNextMonth, handlePrevMonth } = useContext(
-    CalendarContext
-  );
+  const {
+    currentMonth,
+    selectedDate,
+    handleNextMonth,
+    handlePrevMonth,
+  } = useContext(CalendarContext);
 
   return (
     <Center w="100vw">
@@ -19,7 +23,7 @@ const Calendar = () => {
         direction={{ base: "column", lg: "row" }}
         maxW={1024}
         w={{ base: "90%", md: "80%" }}
-        justify="space-between"
+        justify={!isToday(selectedDate) ? "space-between" : "center"}
       >
         <Flex
           direction="column"
@@ -34,7 +38,7 @@ const Calendar = () => {
           <Days currentMonth={currentMonth!} />
           <Cells currentMonth={currentMonth!} />
         </Flex>
-        <SelectedDate />
+        {!isToday(selectedDate) && <SelectedDate />}
       </Flex>
     </Center>
   );

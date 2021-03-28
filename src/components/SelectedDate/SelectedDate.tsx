@@ -12,7 +12,7 @@ const SelectedDate = () => {
 
   return (
     <VStack mt={{ base: 8, lg: 0 }} direction="column" spacing={2}>
-      <Heading as="h3">Date Selected:</Heading>
+      <Heading as="h3">Selected date:</Heading>
       <Text
         textAlign="center"
         fontSize="lg"
