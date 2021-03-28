@@ -10,7 +10,15 @@ import {
   addDays,
   isSameDay,
 } from "date-fns";
-import { Badge, Box, Center, Flex, Text } from "@chakra-ui/react";
+import {
+  Badge,
+  Box,
+  Center,
+  Flex,
+  Grid,
+  GridItem,
+  Text,
+} from "@chakra-ui/react";
 import { RiCheckboxBlankCircleFill } from "react-icons/ri";
 
 import { CalendarContext } from "context/CalendarContext";
@@ -118,7 +126,38 @@ const Cells = ({ currentMonth }: CellsProps) => {
     days = [];
   }
 
-  return <Box w="100%">{rows}</Box>;
+  return (
+    <Box w="100%">
+      {rows}
+      {rows.length === 5 && (
+        <Grid gridTemplateColumns="repeat(7, 1fr)">
+          {[1, 2, 3, 4, 5, 6, 7].map((fakeDay) => (
+            <GridItem>
+              <Box
+                key={day.toString()}
+                w="100%"
+                position="relative"
+                p={{ base: 2, md: 6 }}
+                py={{ base: 6 }}
+                borderBottom="1px"
+                borderLeft="1px"
+                borderColor="gray.100"
+                _last={{
+                  borderBottom: "1px",
+                  borderRight: "1px",
+                  borderColor: "gray.100",
+                }}
+              >
+                <Text fontSize="sm" color="gray.200" textAlign="center">
+                  -
+                </Text>
+              </Box>
+            </GridItem>
+          ))}
+        </Grid>
+      )}
+    </Box>
+  );
 };
 
 export default Cells;
