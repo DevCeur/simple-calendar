@@ -10,7 +10,7 @@ const SelectedDate = () => {
   const dateFormatted = dayjs(selectedDate).format("dddd DD Of MMMM, YYYY");
 
   return (
-    <VStack mt={8} direction="column" spacing={6}>
+    <VStack mt={8} direction="column" spacing={2}>
       <Heading as="h2">Date Selected:</Heading>
       <Text
         textAlign="center"
