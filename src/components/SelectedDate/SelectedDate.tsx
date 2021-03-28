@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+
 import { useContext } from "react";
 import { Heading, Text, VStack } from "@chakra-ui/react";
 
@@ -10,8 +11,8 @@ const SelectedDate = () => {
   const dateFormatted = dayjs(selectedDate).format("dddd DD Of MMMM, YYYY");
 
   return (
-    <VStack mt={8} direction="column" spacing={2}>
-      <Heading as="h2">Date Selected:</Heading>
+    <VStack mt={{ base: 8, lg: 0 }} direction="column" spacing={2}>
+      <Heading as="h3">Date Selected:</Heading>
       <Text
         textAlign="center"
         fontSize="lg"

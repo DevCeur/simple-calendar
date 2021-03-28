@@ -7,7 +7,12 @@ const App = () => {
   return (
     <CalendarContextProvider>
       <Box mb={12}>
-        <Heading color="teal.800" my={8} textAlign="center">
+        <Heading
+          color="teal.800"
+          mt={12}
+          my={{ base: 8, md: 12 }}
+          textAlign="center"
+        >
           Simple React Calendar
         </Heading>
         <Calendar />

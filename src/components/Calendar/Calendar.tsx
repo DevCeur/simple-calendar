@@ -15,14 +15,25 @@ const Calendar = () => {
 
   return (
     <Center w="100vw">
-      <Flex direction="column" maxW={700} w="85%">
-        <Header
-          currentMonth={currentMonth!}
-          onPrevMonth={handlePrevMonth!}
-          onNextMonth={handleNextMonth!}
-        />
-        <Days currentMonth={currentMonth!} />
-        <Cells currentMonth={currentMonth!} />
+      <Flex
+        direction={{ base: "column", lg: "row" }}
+        maxW={1024}
+        w={{ base: "90%", md: "80%" }}
+        justify="space-between"
+      >
+        <Flex
+          direction="column"
+          w={{ base: "100%", lg: "65%" }}
+          mb={{ base: 8, lg: 0 }}
+        >
+          <Header
+            currentMonth={currentMonth!}
+            onPrevMonth={handlePrevMonth!}
+            onNextMonth={handleNextMonth!}
+          />
+          <Days currentMonth={currentMonth!} />
+          <Cells currentMonth={currentMonth!} />
+        </Flex>
         <SelectedDate />
       </Flex>
     </Center>

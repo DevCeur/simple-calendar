@@ -53,7 +53,7 @@ const Cells = ({ currentMonth }: CellsProps) => {
           key={day.toString()}
           w="100%"
           position="relative"
-          p={{ base: 2, md: 6 }}
+          px={{ base: 2, md: 4 }}
           py={{ base: 6 }}
           borderBottom="1px"
           borderLeft="1px"
@@ -148,8 +148,8 @@ const Cells = ({ currentMonth }: CellsProps) => {
                   borderColor: "gray.100",
                 }}
               >
-                <Text fontSize="sm" color="gray.200" textAlign="center">
-                  -
+                <Text fontSize="sm" color="gray.300" textAlign="center">
+                  x
                 </Text>
               </Box>
             </GridItem>
